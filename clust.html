@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h2 id="clust">Analysis: Clustering</h2>
+    <p>
+        My idea first was to cluster popular tweets and compare the number of popular tweets based on
+        Woman in tech and Men and tech and see which one is talked about the most on twitter and the
+        link to it is <a href="Clustering Users.html"> here</a>. I started with
+        K - means clustering and while I was working with DBSCAN a different idea striked.
+
+        <br />  <br />
+        <strong>Why shouldn't I 'transform text data to numerical data and cluster the vectorized data'</strong>
+        <br />
+        <br />
+        Well, I changed my idea and started playing around with vectorized text data.
+        <br />
+        <br />
+        Therefore, I will be including K-Means analysis alone for both of my ideas.
+        <br />
+        <br />
+        I hope this is okay!.
+        <br />
+        <br />
+        Now lets get into Clustering,
+        <br />
+        <br />
+        Aim of clustering is to segregate groups with similar traits and assign them into clusters.
+        Clustering is widely used to label the data by grouping them by similarity. Clustering algorithm
+        uses distance metrics to group the items. Basically, data points that are close to each other
+        goes in the same group.
+        <br />
+        <img src="assets/img/clust/clustering.jpg" alt="my image" class="image" width="90%" height="70%" />
+        <br />
+        Types of Distance metrics:
+    </p>
+    <ul>
+        <li>Euclidean Distance</li>
+        <li>Manhattan Distance</li>
+        <li>Cosine Similarity</li>
+        <li>and so on</li>
+    </ul>
+    <p>
+        Types of Clustering Algorithms:
+    </p>
+    <ul>
+        <li><strong>Partition based: </strong>K means Clustering</li>
+        <li><strong>Density based: </strong>DBSCAN</li>
+        <li><strong>Agglomerative: </strong>Hierarchical Clustering</li>
+
+    </ul>
+    <p>
+        Unlike ARM, for Clustering we need totally different form of data.
+        <br />
+        We will be discussing all of the above clustering algorithms in details below.
+    </p>
+    <br />
+    <h2>K means Clustering:</h2>
+    <p>
+        K-means clustering is a type of unsupervised learning, which is used when you have
+        unlabeled data (i.e., data without defined categories or groups).
+        The goal of this algorithm is to find groups in the data,
+        with the number of groups represented by the variable K.
+        <br />
+        K is the number of clusters formed from the dataset. In this analysis, I have clustered the data
+        by changing number of clusters from 2 to 5.
+        <br />
+        <br />
+        One of the primordial steps in this algorithm is centroid selection, in which k initial
+        centroids are estimated either randomly, calculated, or given by the user.
+        <br />
+        Here, I let the alogrithm to estimate the centroids in random.
+        <br />
+        <br />
+        <img src="assets/img/clust/kcent.png" alt="my image" class="image" width="50%" height="50%" />
+        <br />
+
+        <br />
+
+
+    </p>
+
+    <h2>DBSCAN:</h2>
+    <p>
+        DBSCAN is effective when it comes to arbitrary shaped clusters or detecting outliers.
+        <br />
+        <br />
+        DBSCAN: Density Based Spatial Clustering of Application with Noise.
+        <br />
+        <br />
+        Main idea ---> A point belongs to cluster if it is close to many points from the cluster.
+        <br />
+        <img src="assets/img/clust/dbscan.png" alt="my image" class="image" width="80%" height="60%" />
+        <br />
+        <br />
+        There are two parameter of DBSCAN,
+        <ul>
+            <li>
+                <strong>eps: </strong> The distance specifying the neighborhoods. Two points are
+                neighbors if the distance between them are less than or equal to eps.
+            </li>
+            <li><strong>minpts: </strong>Minimun number of data points to define a cluster.</li>
+        </ul>
+    </p>
+
+    <p>
+        Based on these parameters, points are classified as core points, border points or outliers.
+        <br />
+        <br />
+        <ul>
+            <li>
+                Core points: A point is a core point if there are at least minpts number of points
+                in their surrounding area with r = eps
+            </li>
+            <li>
+                Border points: if it is reachable from a core point and there are less than minimum number
+                of points in surrounding area.
+            </li>
+            <li>Outlier: It is not a core point and not reachable from core point.</li>
+        </ul>
+    </p>
+    <p>
+        For DBSCAN analysis, I have taken three distance metrics into account,
+        <ul>
+            <li>Euclidean Distance</li>
+            <li>Cosine-Similarity</li>
+            <li>Manhattan Distance</li>
+        </ul>
+
+    </p>
+
+    <p>
+        Among all the three, Manhattan performed well with the dataset.
+        DBSCAN also estimates random centroids like K-means.
+        <br />
+        <img src="assets/img/clust/dbcent.png" alt="my image" class="image" width="50%" height="50%" />
+
+    </p>
+
+    <h2>Hierarchical Clustering:</h2>
+    <p>
+        Hierarchical clustering involves creating clusters that have a predetermined ordering from top to bottom.
+        The endpoint is a set of clusters, where each cluster is distinct from each other cluster, and the objects within each cluster are broadly similar to each other.
+        When passed in a list that is tokenized and vectorized usig TF-IDF method, Hierarchical clustering,
+        clusters the documents that are of same genre.
+        <br />
+        <br />
+        <strong>What is TF-IDF?</strong>
+        <br />
+        <br />
+        Term Frequency Inverse Document Frequency (TFIDF) :
+
+        TFIDF works by proportionally increasing the number of times a word appears in the
+        document but is counterbalanced by the number
+        of documents in which it is present.
+        <br />
+        <br />
+        To choose the number of clusters in hierarchical clustering,
+        we make use of concept called dendrogram.
+        <br />
+        <br />
+        <strong>What is Dendrogram?</strong>
+        <br />
+        <br />
+        Dendrogram is a tree like diagram that shows the hierarchical relationship
+        between the observations.
+        It contains the memory of hierarchical clustering algorithms.
+        <br />
+        <br />
+        <img src="assets/img/clust/den.png" alt="my image" class="image" width="70%" height="70%" />
+
+        <br />
+        <br />
+        In the above image, A and B are in one cluster and C,D,E,F are in one cluster.
+        <br />
+
+        The important point to note while reading dendrogram is that:
+    <p>
+        Height of the blocks represents the distance between clusters, and
+        Distance between observations represents dissimilarities.
+    </p>
+    <p>
+        I have performed various clustering algorithms on twitter text data, find the link to my
+        <a href="clustering.html">Clustering project here</a>
+        <br />
+        <br />
+    </p>
+
+</body>
+</html>
