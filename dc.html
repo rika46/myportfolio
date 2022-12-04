@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="dc">
+        <h2 style="text-align:center;">Data Cleaning and Preparation</h2>
+        <h3>Data Collection:</h3>
+        <p>
+            The data is extracted from twitter.
+            In the twitter data, we can get many objects related to a user, tweets on various subjects, hashtags and more.
+
+            <br />
+            <img src="assets/img/dc/twitter.png" alt="intro" class="image" width="60%" height="70%">
+
+            <br />
+            Below are the API keys provided by twitter and tweets can be extracted by authenticating these keys.
+            <br />
+            <strong>Twitter API format:</strong>
+            <ul>
+                <li> consumer_key = ' '</li>
+                <li>consumer_secret = ' '</li>
+
+                <li>access_token = ' '</li>
+                <li>access_token_secret = ' '</li>
+
+            </ul>
+
+
+            <br />
+
+
+
+
+            To get started with Twitter API, we first required to create a twitter developer account and follow several authentication processes,
+            all of which will be thoroughly detailed in this <a href="https://developer.twitter.com/en/docs/platform-overview">article</a>.
+
+            <br />
+            <br />
+        </p>
+        <h3>Data Cleaning:</h3>
+        <p>
+            As tweets ar text data, cleaning is a bit crucial. There are few steps in cleaning the text data.
+            <ul>
+                <li>Lowecasing the data.</li>
+                <li>Removing Puncuatations.</li>
+                <li>Removing Numbers.</li>
+                <li>Removing extra space.</li>
+                <li>Replacing the repetitions of punctations.</li>
+                <li>Removing Emojis.</li>
+                <li>Removing emoticons.</li>
+                <li>Removing Contractions.</li>
+                <li>Removing stopper words</li>
+                <li>Removing not meaningful words</li>
+
+            </ul>
+            <br />
+            This project is mostly based on text data, cleaning part is concentrated on text data itself.
+            <br />
+
+
+            <div class="section1">
+                <h3>Before:</h3>
+                <img src="assets/img/dc/before.png" alt="intro" class="image" width="98%" height="70%">
+                Links to raw, cleaned and transactional data.
+                <ul>
+                    <li><a href="https://github.com/rika46/Twitter-data-analysis.git">raw data</a></li>
+                    <li><a href="https://github.com/rika46/Twitter-data-analysis.git">cleaned data</a></li>
+                    <li><a href="https://github.com/rika46/Twitter-data-analysis.git">transactional data</a></li>
+                </ul>
+            </div>
+            <div class="section2">
+                <h3>After:</h3>
+                <img src="assets/img/dc/after.png" alt="intro" class="image" width="98%" height="70%">
+            </div>
+
+        </p>
+        <h3>Data Preparation:</h3>
+        <p>
+            Taking only the text column and exploding the dataframe to create transaction based data especially for ARM.
+        </p>
+        <h3>Visualization: wordcloud</h3>
+        <p>
+            <div class="section1">
+                <h3>Men in technology:</h3>
+                <img src="assets/img/dc/men.jpg" alt="intro" class="image" width="98%" height="70%">
+                <p>Link to the data cleaning and prepapration code in Python is <a href="dc_code.html">here</a></p>
+            </div>
+           
+            <div class="section2">
+                <h3>Woman in technology:</h3>
+                <img src="assets/img/dc/women.jpg" alt="intro" class="image" width="98%" height="70%">
+            </div>
+        </p>
+       
+    </div>
+
+    <style>
+        .section1 {
+            width: 50%;
+            float: left;
+            height: 100vh;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .section2 {
+            width: 50%;
+            float: right;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .dc {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 10px;
+            font-size: 20px;
+            text-align: justify;
+            align-content: center
+        }
+    </style>
+</body>
+</html>
+
+
